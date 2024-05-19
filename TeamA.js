@@ -9,7 +9,7 @@ let gente = [
     favoriteVideoGame: "The Legend of Zelda",
     favoriteFilm: "Inception",
     favoriteBook: "1984",
-    petName: "Fido",
+    petName: "",
   },
   {
     name: "Giuseppe",
@@ -33,23 +33,26 @@ let gente = [
     favoriteVideoGame: "Final Fantasy",
     favoriteFilm: "Casablanca",
     favoriteBook: "1984",
-    petName: "Fido",
+    petName: "",
   },
 ];
 // - Print the team middle age.
 // - Print who has a pet (name petName).
 
-// let newPerson = {
-//   name: "Paolo",
-//   surname: "Rossi",
-//   age: 30,
-//   city: "New York",
-//   hobby: "Leggere",
-//   favoriteFood: "Booh",
-//   favoriteVideoGame: "The Legend of Zelda",
-//   favoriteFilm: "Inception",
-//   favoriteBook: "1984",
-//   petName: "Fido",
-// };
-// gente.push(newPerson);
-// console.log(gente);
+function middleAge(arr) {
+  const etaArray = arr.map((oggetto) => oggetto.age);
+  const mediaEta = etaArray.reduce((accum, age) => accum + age, 0);
+  return mediaEta / etaArray.length;
+}
+
+function whoHasPet(arr) {
+  const petPerson = arr.map((persona) => {
+    return { name: persona.name, petName: persona.petName };
+  });
+  return petPerson.filter((person) => person.petName !== "");
+}
+
+let midAge = middleAge(gente);
+console.log(midAge);
+let petNamePerson = whoHasPet(gente);
+console.log(petNamePerson);
