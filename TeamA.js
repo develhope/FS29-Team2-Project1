@@ -29,7 +29,7 @@ let gente = [
     age: 60,
     city: "Amsterdam",
     hobby: "Programmare",
-    favoriteFood: "Kebab",
+    favoriteFood: "sushi",
     favoriteVideoGame: "Final Fantasy",
     favoriteFilm: "Casablanca",
     favoriteBook: "1984",
