@@ -38,6 +38,9 @@ let gente = [
 ];
 // - Print the team middle age.
 // - Print who has a pet (name petName).
+function fullname(arr){
+    const myFullname = arr.map((identity) => { return {surname: identity.surname, name: identity.name}});
+}
 
 function middleAge(arr) {
   const etaArray = arr.map((oggetto) => oggetto.age);
