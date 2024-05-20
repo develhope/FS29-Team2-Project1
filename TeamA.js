@@ -14,7 +14,7 @@ let gente = [
   {
     name: "Giuseppe",
     surname: "Verdi",
-    age: 35,
+    age: 30,
     city: "Londra",
     hobby: "Palestra",
     favoriteFood: "Sushi",
@@ -39,7 +39,29 @@ let gente = [
 // - Print the team middle age.
 // - Print who has a pet (name petName).
 function fullname(arr){
-    const myFullname = arr.map((identity) => { return {surname: identity.surname, name: identity.name}});
+    const myFullName = arr.sort((a,b)=> {
+        if(a.surname < b.surname){
+            return -1;
+        } if (a.surname > b.surname){
+            return 1;
+        }
+        
+        return 0;
+    })
+     return myFullName.map((identity) => {return {name: identity.surname, surname: identity.surname}});
+}
+
+function olderAge(arr){
+    const olderPerson = arr.sort((a,b) => {
+        if(a.age < b.age){
+            return -1;
+        } if (a.age > b.age){
+            return 1;
+        }
+        
+        return 0;
+    })
+    return olderPerson.map((oldPerson) => {return {name: oldPerson.name, age: oldPerson.age}});
 }
 
 function middleAge(arr) {
@@ -55,6 +77,10 @@ function whoHasPet(arr) {
   return petPerson.filter((person) => person.petName !== "");
 }
 
+let allID = fullname(gente);
+console.log(allID);
+let ageRegister = olderAge(gente);
+console.log(ageRegister);
 let midAge = middleAge(gente);
 console.log(midAge);
 let petNamePerson = whoHasPet(gente);
