@@ -35,6 +35,18 @@ let gente = [
     favoriteBook: "1984",
     petName: "",
   },
+  {
+    name: "Nicolas",
+    surname: "Papappicco",
+    age: 21,
+    city: "Bitonto",
+    hobby: "Disegnare",
+    favoriteFood: "Kimchi",
+    favoriteVideoGame: "League of legends",
+    favoriteFilm: "A silent voice",
+    favoriteBook: "",
+    petName: "Nuvola",
+  },
 ];
 // - Print the team middle age.
 // - Print who has a pet (name petName).
@@ -52,6 +64,19 @@ function whoHasPet(arr) {
   return petPerson.filter((person) => person.petName !== "");
 }
 
+// - Print who wrote ‘LOL’ or ‘League Of Legends’ as a favorite video game. (name)
+
+function printLolFans(arr) {
+  const lolFansArr = arr.filter(
+    (person) =>
+      person.favoriteVideoGame.toLowerCase() == "league of legends" ||
+      person.favoriteVideoGame.toLowerCase() == "lol"
+  );
+  const lolFansName = lolFansArr.map((element) => element.name);
+  return lolFansName;
+}
+
+console.log(...printLolFans(gente));
 let midAge = middleAge(gente);
 console.log(midAge);
 let petNamePerson = whoHasPet(gente);
