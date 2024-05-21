@@ -47,6 +47,18 @@ let gente = [
     favoriteBook: "",
     petName: "Nuvola",
   },
+  {
+    name: "Gianluca",
+    surname: "Gruosso",
+    age: 26,
+    city: "Potenza",
+    hobby: "Writing",
+    favoriteFood: "Fried courgette flowers",
+    favoriteVideoGame: "Simcity 3000",
+    favoriteFilm: "Good Will Hunting",
+    favoriteBook: "The Picture of Dorian Gray",
+    petName: "Sissel",
+  },
 ];
 // - Print the team middle age.
 // - Print who has a pet (name petName).
