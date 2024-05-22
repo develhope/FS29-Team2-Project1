@@ -113,6 +113,22 @@ function printLolFans(arr) {
   return lolFansName;
 }
 
+//Print if there are some members with the same name
+
+function sameName(arr){
+  const nomeArr = arr.map((elemento) => elemento.name);
+  const nameCount = {};
+  nomeArr.forEach(name => {
+    nameCount[name] = (nameCount[name] || 0) + 1;
+  });
+  const duplicateNames = Object.keys(nameCount).filter(name => nameCount[name] > 1);
+      if (duplicateNames.length > 0){
+        return 'members with the same name found';
+      }else{
+      return 'there are no members with the same name';
+      }
+}
+
 console.log(...printLolFans(gente));
 let allID = fullname(gente);
 console.log(allID);
@@ -122,3 +138,5 @@ let midAge = middleAge(gente);
 console.log(midAge);
 let petNamePerson = whoHasPet(gente);
 console.log(petNamePerson);
+let homonymy = sameName(gente);
+console.log(homonymy);
