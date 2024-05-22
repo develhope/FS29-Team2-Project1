@@ -60,40 +60,49 @@ let gente = [
     petName: "Sissel",
   },
 ];
-// - Print the team middle age.
-// - Print who has a pet (name petName).
-function fullname(arr){
-    const myFullName = arr.sort((a,b)=> {
-        if(a.surname < b.surname){
-            return -1;
-        } if (a.surname > b.surname){
-            return 1;
-        }
-        
-        return 0;
-    })
-     return myFullName.map((identity) => {return {name: identity.surname, surname: identity.surname}});
+
+//nomi del team
+function fullname(arr) {
+  const myFullName = arr.sort((a, b) => {
+    if (a.surname < b.surname) {
+      return -1;
+    }
+    if (a.surname > b.surname) {
+      return 1;
+    }
+
+    return 0;
+  });
+  return myFullName.map((identity) => {
+    return { name: identity.surname, surname: identity.surname };
+  });
 }
 
-function olderAge(arr){
-    const olderPerson = arr.sort((a,b) => {
-        if(a.age < b.age){
-            return -1;
-        } if (a.age > b.age){
-            return 1;
-        }
-        
-        return 0;
-    })
-    return olderPerson.map((oldPerson) => {return {name: oldPerson.name, age: oldPerson.age}});
+//età maggiore
+function olderAge(arr) {
+  const olderPerson = arr.sort((a, b) => {
+    if (a.age < b.age) {
+      return -1;
+    }
+    if (a.age > b.age) {
+      return 1;
+    }
+
+    return 0;
+  });
+  return olderPerson.map((oldPerson) => {
+    return { name: oldPerson.name, age: oldPerson.age };
+  });
 }
 
+//età media
 function middleAge(arr) {
   const etaArray = arr.map((oggetto) => oggetto.age);
   const mediaEta = etaArray.reduce((accum, age) => accum + age, 0);
   return mediaEta / etaArray.length;
 }
 
+//chi ha animali
 function whoHasPet(arr) {
   const petPerson = arr.map((persona) => {
     return { name: persona.name, petName: persona.petName };
@@ -102,7 +111,6 @@ function whoHasPet(arr) {
 }
 
 // - Print who wrote ‘LOL’ or ‘League Of Legends’ as a favorite video game. (name)
-
 function printLolFans(arr) {
   const lolFansArr = arr.filter(
     (person) =>
@@ -114,19 +122,20 @@ function printLolFans(arr) {
 }
 
 //Print if there are some members with the same name
-
-function sameName(arr){
+function sameName(arr) {
   const nomeArr = arr.map((elemento) => elemento.name);
   const nameCount = {};
-  nomeArr.forEach(name => {
+  nomeArr.forEach((name) => {
     nameCount[name] = (nameCount[name] || 0) + 1;
   });
-  const duplicateNames = Object.keys(nameCount).filter(name => nameCount[name] > 1);
-      if (duplicateNames.length > 0){
-        return 'members with the same name found';
-      }else{
-      return 'there are no members with the same name';
-      }
+  const duplicateNames = Object.keys(nameCount).filter(
+    (name) => nameCount[name] > 1
+  );
+  if (duplicateNames.length > 0) {
+    return "members with the same name found";
+  } else {
+    return "there are no members with the same name";
+  }
 }
 
 console.log(...printLolFans(gente));
